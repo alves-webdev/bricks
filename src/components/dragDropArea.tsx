@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { useState } from "react";
 import { Card } from "@/components/ui/card";
@@ -68,15 +68,14 @@ const DragAndDropPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="flex flex-col h-screen bg-[#F4F1DE] text-[#3D405B]">
       <Header />
-      <div className="p-4 space-y-4">
-
-          <Button onClick={addBlock} className="bg-gray-300 border-2 border-black text-black">
-            Add Block
-          </Button>
-
-        <div className="space-y-4 overflow-y-auto h-[80vh]">
+      <div className="flex-1 overflow-auto p-4">
+        <div className="flex justify-between items-center mb-4">
+          <h2 className="text-xl font-semibold">Manage Blocks</h2>
+          <Button onClick={addBlock} className="bg-[#81B29A] text-white">Add Block</Button>
+        </div>
+        <div className="grid gap-4 auto-rows-min">
           {blocks.map((block) => (
             <Block
               key={block.id}
