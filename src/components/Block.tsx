@@ -1,9 +1,7 @@
-'use client'
-
 import { Rnd } from "react-rnd";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { BlockData, DraggableElement } from "./dragDropArea";
+import { BlockData, Shard } from "./dragDropArea";
 
 interface BlockProps {
   block: BlockData;
@@ -13,7 +11,7 @@ interface BlockProps {
 
 const Block = ({ block, removeBlock, updateBlock }: BlockProps) => {
   const addElement = () => {
-    const newElement = {
+    const newElement: Shard = {
       id: Date.now(),
       x: 50,
       y: 50,
@@ -24,7 +22,7 @@ const Block = ({ block, removeBlock, updateBlock }: BlockProps) => {
     updateBlock({ ...block, elements: [...block.elements, newElement] });
   };
 
-const updateElement = (elementId: number, data: Partial<DraggableElement>) => {
+const updateElement = (elementId: number, data: Partial<Shard>) => {
   const updatedElements = block.elements.map((element) =>
     element.id === elementId ? { ...element, ...data } : element
   );
