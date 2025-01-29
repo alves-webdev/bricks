@@ -1,9 +1,10 @@
-'use client'
+'use client';
 
 import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Block from "./Block";
+import Header from "@/components/Header";
 
 export interface Shard {
   id: number;
@@ -56,30 +57,35 @@ const DragAndDropPage = () => {
     setBlocks(blocks.filter((block) => block.id !== blockId));
   };
 
-const updateBlock = (updatedBlock: BlockData) => {
-  setBlocks(
-    blocks.map((block) =>
-      block.id === updatedBlock.id
-        ? { ...updatedBlock, elements: updatedBlock.elements.map(el => ({ ...el })) }
-        : block
-    )
-  );
-};
+  const updateBlock = (updatedBlock: BlockData) => {
+    setBlocks(
+      blocks.map((block) =>
+        block.id === updatedBlock.id
+          ? { ...updatedBlock, elements: updatedBlock.elements.map(el => ({ ...el })) }
+          : block
+      )
+    );
+  };
 
   return (
-    <div className="p-4 space-y-4">
-      <Card className="mb-4 p-4 flex gap-4">
-        <Button onClick={addBlock}>Add Block</Button>
-      </Card>
-      <div className="space-y-4 overflow-y-auto h-[80vh]">
-        {blocks.map((block) => (
-          <Block
-            key={block.id}
-            block={block}
-            removeBlock={removeBlock}
-            updateBlock={updateBlock}
-          />
-        ))}
+    <div className="min-h-screen bg-gray-100">
+      <Header />
+      <div className="p-4 space-y-4">
+
+          <Button onClick={addBlock} className="bg-gray-300 border-2 border-black text-black">
+            Add Block
+          </Button>
+
+        <div className="space-y-4 overflow-y-auto h-[80vh]">
+          {blocks.map((block) => (
+            <Block
+              key={block.id}
+              block={block}
+              removeBlock={removeBlock}
+              updateBlock={updateBlock}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
