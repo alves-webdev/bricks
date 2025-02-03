@@ -1,7 +1,8 @@
+// components/Block.tsx
 import { Rnd } from "react-rnd";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { BlockData, Shard } from "./dragDropArea";
+import { BlockData, Shard } from "@/stores/useDragAndDropStore ";
 
 interface BlockProps {
   block: BlockData;
@@ -22,26 +23,22 @@ const Block = ({ block, removeBlock, updateBlock }: BlockProps) => {
     updateBlock({ ...block, elements: [...block.elements, newElement] });
   };
 
-const updateElement = (elementId: number, data: Partial<Shard>) => {
-  const updatedElements = block.elements.map((element) =>
-    element.id === elementId ? { ...element, ...data } : element
-  );
-  updateBlock({ ...block, elements: updatedElements });
-};
-
+  const updateElement = (elementId: number, data: Partial<Shard>) => {
+    const updatedElements = block.elements.map((element) =>
+      element.id === elementId ? { ...element, ...data } : element
+    );
+    updateBlock({ ...block, elements: updatedElements });
+  };
 
   const changeZIndex = (elementId: number, direction: "up" | "down") => {
     const elements = [...block.elements];
     const index = elements.findIndex((el) => el.id === elementId);
-
     if (index === -1) return;
 
     const swapIndex = direction === "up" ? index + 1 : index - 1;
-
     if (swapIndex < 0 || swapIndex >= elements.length) return;
 
     [elements[index], elements[swapIndex]] = [elements[swapIndex], elements[index]];
-
     elements.forEach((el, idx) => {
       el.zIndex = idx + 1;
     });
@@ -98,16 +95,10 @@ const updateElement = (elementId: number, data: Partial<Shard>) => {
                 ✕
               </Button>
               <div className="absolute bottom-0 left-0 flex gap-1 p-1">
-                <Button
-                  size="sm"
-                  onClick={() => changeZIndex(element.id, "up")}
-                >
+                <Button size="sm" onClick={() => changeZIndex(element.id, "up")}>
                   ↑
                 </Button>
-                <Button
-                  size="sm"
-                  onClick={() => changeZIndex(element.id, "down")}
-                >
+                <Button size="sm" onClick={() => changeZIndex(element.id, "down")}>
                   ↓
                 </Button>
               </div>
