@@ -2,7 +2,7 @@
 import { Rnd } from "react-rnd";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { BlockData, Shard } from "@/stores/useDragAndDropStore ";
+import { BlockData, Shard } from "@/stores/useDragAndDropStore";
 
 interface BlockProps {
   block: BlockData;
