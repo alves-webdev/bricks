@@ -1,9 +1,7 @@
-import DragAndDropArea from "@/components/dragDropArea";
-
-export default function Home() {
+ export default function Home() {
   return (
     <div>
-      <DragAndDropArea/>
+      <h1>xd</h1>
     </div>
   );
 }
