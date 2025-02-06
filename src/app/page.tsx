@@ -1,7 +1,11 @@
+import ChatInput from "@/components/ChatInput";
+import LandingSkeleton from "@/components/LandingSkeleton";
+
  export default function Home() {
   return (
     <div>
-      <h1>xd</h1>
+      <LandingSkeleton/>
+      <ChatInput />
     </div>
   );
 }
