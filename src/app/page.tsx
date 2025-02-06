@@ -1,3 +1,6 @@
+//src/app/page.tsx
+
+
 import ChatInput from "@/components/ChatInput";
 import LandingSkeleton from "@/components/LandingSkeleton";
 
