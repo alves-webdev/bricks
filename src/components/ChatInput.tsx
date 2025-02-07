@@ -20,7 +20,7 @@ const ChatInput: React.FC = () => {
         <textarea
           value={message}
           onChange={(e) => setMessage(e.target.value)}
-          placeholder="Type your message..."
+          placeholder="Type your prompt..."
           className="w-full h-24 p-4 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-300 resize-none focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
         />
         <button

@@ -6,7 +6,7 @@ import LandingSkeleton from "@/components/LandingSkeleton";
 
  export default function Home() {
   return (
-    <div>
+    <div className="bg-gray-300">
       <LandingSkeleton/>
       <ChatInput />
     </div>
