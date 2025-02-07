@@ -1,3 +1,4 @@
+// src/components/LandingSkeleton.tsx
 'use client'
 
 import React from "react";
@@ -10,9 +11,10 @@ const LandingSkeleton: React.FC = () => {
 
       {/* Three-column feature section */}
       <div className="flex space-x-8">
-        <div className="w-1/3 h-48 rounded-lg skeleton" />
-        <div className="w-1/3 h-48 rounded-lg skeleton" />
-        <div className="w-1/3 h-48 rounded-lg skeleton" />
+        <div className="w-1/3 h-64 rounded-lg skeleton" />
+        <div className="w-1/3 h-64 rounded-lg skeleton" />
+        <div className="w-1/3 h-64 rounded-lg skeleton" />
+
       </div>
 
       {/* Grid of smaller content blocks */}
@@ -22,7 +24,6 @@ const LandingSkeleton: React.FC = () => {
         ))}
       </div>
 
-      {/* Inline styles for the ripple animation */}
       <style jsx>{`
         .skeleton {
           background: linear-gradient(

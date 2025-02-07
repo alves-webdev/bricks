@@ -1,16 +1,14 @@
-// components/ChatInput.tsx
-
-'use client'
-
-import React, { useState } from 'react';
+// src/components/ChatInput.tsx
+"use client";
+import React, { useState } from "react";
 
 const ChatInput: React.FC = () => {
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState("");
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log('Submitted message:', message);
-    setMessage('');
+    console.log("Submitted message:", message);
+    setMessage("");
   };
 
   return (
@@ -22,8 +20,8 @@ const ChatInput: React.FC = () => {
         <textarea
           value={message}
           onChange={(e) => setMessage(e.target.value)}
-          placeholder="Type your message..."
-          className="w-full h-24 p-4 border border-gray-300 rounded-lg bg-white text-gray-800 placeholder-gray-400 resize-none focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+          placeholder="Type your prompt..."
+          className="w-full h-24 p-4 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-300 resize-none focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
         />
         <button
           type="submit"
