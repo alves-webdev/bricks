@@ -1,4 +1,3 @@
-// src/components/ChatInput.tsx (Modified to receive and use onGenerate)
 "use client";
 import React, { useState } from "react";
 

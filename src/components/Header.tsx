@@ -1,12 +1,9 @@
-// src/components/Header.tsx
 "use client";
+
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 
-const tabs = ["Profile", "Reports", "Analytics", "Notifications", "Help"];
-
 export default function Header() {
-  const [activeTab, setActiveTab] = useState("Profile");
   const [isDark, setIsDark] = useState(true);
 
   useEffect(() => {
@@ -24,20 +21,13 @@ export default function Header() {
     <header className="bg-white dark:bg-gray-800 shadow-sm border-b dark:border-gray-700">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
         <div className="flex space-x-8 py-4">
-          {tabs.map((tab) => (
-            <button
-              key={tab}
-              onClick={() => setActiveTab(tab)}
-              className={cn(
-                "text-sm font-medium transition-colors hover:text-gray-900 dark:hover:text-white",
-                activeTab === tab
-                  ? "text-gray-900 dark:text-white border-b-2 border-indigo-500"
-                  : "text-gray-500"
-              )}
-            >
-              {tab}
-            </button>
-          ))}
+          <button
+            className={cn(
+              "text-sm font-medium transition-colors hover:text-gray-900 dark:hover:text-white text-gray-900 dark:text-white border-b-2 border-indigo-500"
+            )}
+          >
+            Home
+          </button>
         </div>
         <button
           onClick={toggleDarkMode}

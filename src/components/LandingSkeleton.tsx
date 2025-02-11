@@ -1,5 +1,4 @@
-// src/components/LandingSkeleton.tsx
-'use client'
+"use client";
 
 import React from "react";
 
@@ -14,7 +13,6 @@ const LandingSkeleton: React.FC = () => {
         <div className="w-1/3 h-64 rounded-lg skeleton" />
         <div className="w-1/3 h-64 rounded-lg skeleton" />
         <div className="w-1/3 h-64 rounded-lg skeleton" />
-
       </div>
 
       {/* Grid of smaller content blocks */}
