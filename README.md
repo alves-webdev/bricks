@@ -26,7 +26,7 @@ To use Bricks AI, you'll need to set up your Gemini API key:
 2. Create a `.env.local` file in your project root
 3. Add your Gemini API key:
    ```env
-   GOOGLE_API_KEY=your_api_key_here
+   NEXT_PUBLIC_GEMINI_KEY=your_api_key_here
    ```
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
