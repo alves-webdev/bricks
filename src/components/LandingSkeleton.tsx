@@ -1,47 +1,46 @@
 "use client";
 
 import React from "react";
+import { Card } from "./ui/card";
 
 const LandingSkeleton: React.FC = () => {
   return (
-    <div className="p-8 space-y-8">
+    <div className="p-8 space-y-8 animate-pulse">
       {/* Hero Section Skeleton */}
-      <div className="w-full h-96 rounded-lg skeleton" />
-
-      {/* Three-column feature section */}
-      <div className="flex space-x-8">
-        <div className="w-1/3 h-64 rounded-lg skeleton" />
-        <div className="w-1/3 h-64 rounded-lg skeleton" />
-        <div className="w-1/3 h-64 rounded-lg skeleton" />
+      <div className="space-y-4">
+        <div className="h-12 bg-gray-200 dark:bg-gray-700 rounded-lg w-3/4 mx-auto" />
+        <div className="h-6 bg-gray-200 dark:bg-gray-700 rounded-lg w-1/2 mx-auto" />
       </div>
 
-      {/* Grid of smaller content blocks */}
-      <div className="grid grid-cols-3 gap-8">
-        {Array.from({ length: 6 }).map((_, i) => (
-          <div key={i} className="w-full h-32 rounded-lg skeleton" />
+      {/* Feature Section */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {Array.from({ length: 3 }).map((_, i) => (
+          <Card key={i} className="p-6 space-y-4">
+            <div className="h-8 bg-gray-200 dark:bg-gray-700 rounded-lg w-2/3" />
+            <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded-lg w-full" />
+            <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded-lg w-5/6" />
+          </Card>
         ))}
       </div>
 
-      <style jsx>{`
-        .skeleton {
-          background: linear-gradient(
-            90deg,
-            #e5e7eb 25%,
-            #d1d5db 37%,
-            #e5e7eb 63%
-          );
-          background-size: 400% 100%;
-          animation: shimmer 1.4s ease infinite;
-        }
-        @keyframes shimmer {
-          0% {
-            background-position: -100% 0;
-          }
-          100% {
-            background-position: 100% 0;
-          }
-        }
-      `}</style>
+      {/* Content Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {Array.from({ length: 6 }).map((_, i) => (
+          <Card key={i} className="p-4">
+            <div className="h-32 bg-gray-200 dark:bg-gray-700 rounded-lg mb-4" />
+            <div className="space-y-2">
+              <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded-lg w-3/4" />
+              <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded-lg w-1/2" />
+            </div>
+          </Card>
+        ))}
+      </div>
+
+      {/* CTA Section */}
+      <div className="text-center space-y-4">
+        <div className="h-8 bg-gray-200 dark:bg-gray-700 rounded-lg w-1/3 mx-auto" />
+        <div className="h-10 bg-gray-200 dark:bg-gray-700 rounded-lg w-48 mx-auto" />
+      </div>
     </div>
   );
 };
