@@ -2,6 +2,10 @@
 import React, { useState } from "react";
 import { Button } from "./ui/button";
 import { Card } from "./ui/card";
+import { useInputStore } from "@/store/inputs";
+import ColorPicker from "./ColorPicker";
+import ImageInput from "./ImageInput";
+import { ChevronDown, ChevronUp } from "lucide-react";
 
 interface ChatInputProps {
   onGenerate: (prompt: string) => void;
@@ -10,12 +14,18 @@ interface ChatInputProps {
 const ChatInput: React.FC<ChatInputProps> = ({ onGenerate }) => {
   const [message, setMessage] = useState("");
   const [isFocused, setIsFocused] = useState(false);
+  const [showAdvanced, setShowAdvanced] = useState(false);
+  const { colors, images, clearInputs } = useInputStore();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (message.trim()) {
-      onGenerate(message);
+      const prompt = `${message.trim()}\n\nColors:\n${Object.entries(colors)
+        .map(([key, value]) => `${key}: ${value}`)
+        .join("\n")}\n\nImages:\n${images.join("\n")}`;
+      onGenerate(prompt);
       setMessage("");
+      clearInputs();
     }
   };
 
@@ -64,6 +74,31 @@ const ChatInput: React.FC<ChatInputProps> = ({ onGenerate }) => {
               </Button>
             </div>
           </div>
+
+          <div className="space-y-4">
+            <Button
+              type="button"
+              variant="ghost"
+              size="sm"
+              className="w-full flex items-center justify-between"
+              onClick={() => setShowAdvanced(!showAdvanced)}
+            >
+              <span>Advanced Options</span>
+              {showAdvanced ? (
+                <ChevronUp className="h-4 w-4" />
+              ) : (
+                <ChevronDown className="h-4 w-4" />
+              )}
+            </Button>
+
+            {showAdvanced && (
+              <div className="space-y-6 pt-4 border-t">
+                <ColorPicker />
+                <ImageInput />
+              </div>
+            )}
+          </div>
+
           <div className="text-sm text-gray-500 dark:text-gray-400 text-center">
             Tip: Be specific about your requirements for better results
           </div>
