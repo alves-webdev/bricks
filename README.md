@@ -18,16 +18,32 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Setting up Gemini API
+## Setting up AI Models
 
-To use Bricks AI, you'll need to set up your Gemini API key:
+Bricks AI supports multiple language models to generate your landing pages. You can choose to use any of the following:
 
+### Google Gemini
 1. Visit the [Google AI Studio](https://makersuite.google.com/app/apikey) to get your API key
-2. Create a `.env.local` file in your project root
-3. Add your Gemini API key:
+2. Add to your `.env.local`:
    ```env
    NEXT_PUBLIC_GEMINI_KEY=your_api_key_here
    ```
+
+### OpenAI GPT-4
+1. Get your API key from [OpenAI's platform](https://platform.openai.com/api-keys)
+2. Add to your `.env.local`:
+   ```env
+   NEXT_PUBLIC_OPENAI_KEY=your_api_key_here
+   ```
+
+### Anthropic Claude
+1. Get your API key from [Anthropic's console](https://console.anthropic.com/)
+2. Add to your `.env.local`:
+   ```env
+   NEXT_PUBLIC_CLAUDE_KEY=your_api_key_here
+   ```
+
+You can configure one or more of these models - Bricks AI will use whichever ones you have set up.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
